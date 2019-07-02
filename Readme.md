@@ -83,14 +83,14 @@ For a uaa/credhub solution...
 1. Test access
 
 ```bash
-fly login -t lab -c https://ci.lab.winterfell.live -k
+fly login -t lab -c https://ci.lab.cloudpandit.online -k
 
 # Go to the url presented in the login prompt and authenticate with the newly created user
 # using fly and chome on seperate computers, go to /sky/token and copy the content of the page and then enter into the fly prompt for token
 
-fly -t lab set-team -n team-uaa-oauth --oauth-user concourse --non-interactive
+fly -t lab set-team -n team-uaa-oauth --oauth-user ppandit --non-interactive
 
-credhub api https://ci.lab.winterfell.live:8844 --ca-cert <(bosh int generated/concourse/concourse-gen-vars.yml --path /atc_tls/ca)
+credhub api https://ci.lab.cloudpandit.online:8844 --ca-cert <(bosh int generated/concourse/concourse-gen-vars.yml --path /atc_tls/ca)
 
 export CREDHUB_PASSWORD=$(bosh int generated/concourse/concourse-gen-vars.yml --path /uaa_users_admin)
 

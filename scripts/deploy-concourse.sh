@@ -1,6 +1,9 @@
-source scripts/bosh-env.sh
+#source scripts/bosh-env.sh
 
-bosh -e bosh-concourse -d concourse -n \
+#Deleting the previous generated configuration file if exists
+rm generated/concourse/concourse-gen-vars.yml 
+
+bosh -e bosh-1 -d concourse -n \
   deploy local-cache/concourse-bosh-deployment/cluster/concourse.yml \
   -o local-cache/concourse-bosh-deployment/cluster/operations/add-main-team-oauth-users.yml \
   -o local-cache/concourse-bosh-deployment/cluster/operations/static-web.yml \
